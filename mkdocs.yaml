@@ -1,6 +1,5 @@
 site_name: MyTestProject Documentation
-nav:
-  - Home: README.md
+
 
 plugins:
   - search
