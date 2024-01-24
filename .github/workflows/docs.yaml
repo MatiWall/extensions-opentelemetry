@@ -28,7 +28,7 @@ jobs:
         mkdocs build
 
         # Optionally, run mkdocstrings to generate documentation from docstrings
-        mkdocstrings your_package_name --output docs
+        mkdocstrings extensions/opentelemetry --output docs
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
