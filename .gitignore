@@ -3,3 +3,6 @@
 .idea/
 
 *.lock
+
+*.tar.gz
+*.whl
