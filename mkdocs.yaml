@@ -4,15 +4,11 @@ nav:
 
 plugins:
   - search
-  - mkdocstrings:
-      extra:
-        project_name: "MyTestProject"
-        include_package: extensions/opentelemetry
-        output_dir: docs
+  - mkdocstrings
 
 
 theme:
-  name: material
+  name: readthedocs
 
 markdown_extensions:
   - admonition
