@@ -9,12 +9,22 @@ packages = [
     {include = "extensions/opentelemetry"}
 ]
 
+[[tool.poetry.source]]
+name = "private"
+url = "http://pypi.mw"
+priority = "primary"
+
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "supplemental"
+
 [tool.poetry.dependencies]
 python = "^3.11"
 opentelemetry-api = "^1.22.0"
 opentelemetry-sdk = "^1.22.0"
 opentelemetry-exporter-otlp = "^1.22.0"
-extensions-configuration= { git = "https://github.com/MatiWall/extensions-configuration.git", branch = "main" }
+extensions-configuration = "^0.1.0"
 
 [build-system]
 requires = ["poetry-core"]

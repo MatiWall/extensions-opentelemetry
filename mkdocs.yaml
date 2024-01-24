@@ -1,0 +1,21 @@
+site_name: MyTestProject Documentation
+nav:
+  - Home: README.md
+
+plugins:
+  - search
+  - mkdocstrings:
+      project_name: "MyTestProject"
+      include_package: extensions/opentelemetry
+      output_dir: docs
+
+theme:
+  name: material
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.emoji
