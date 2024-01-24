@@ -5,9 +5,11 @@ nav:
 plugins:
   - search
   - mkdocstrings:
-      project_name: "MyTestProject"
-      include_package: extensions/opentelemetry
-      output_dir: docs
+      extra:
+        project_name: "MyTestProject"
+        include_package: extensions/opentelemetry
+        output_dir: docs
+
 
 theme:
   name: material
