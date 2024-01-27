@@ -28,11 +28,6 @@ jobs:
       run: |
         mkdocs build
 
-    - name: Pull latest changes from gh-pages branch
-      run: |
-        git fetch origin gh-pages
-        git checkout -B gh-pages origin/gh-pages
-
     - name: Publish docs
       run: mkdocs gh-deploy
       env:
