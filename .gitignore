@@ -6,3 +6,7 @@
 
 *.tar.gz
 *.whl
+
+dist/
+
+site/

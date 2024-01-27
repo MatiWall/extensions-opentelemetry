@@ -1,3 +1,3 @@
 
 
-:::extensions.telemetry.config
+:::extensions.opentelemetry.config
