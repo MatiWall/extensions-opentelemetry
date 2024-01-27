@@ -6,10 +6,5 @@ plugins:
   - mkdocstrings:
       default_handler: python
 
-
-
 theme:
   name: readthedocs
-
-nav:
-  - Home: index.md
