@@ -10,11 +10,3 @@ plugins:
 theme:
   name: readthedocs
 
-markdown_extensions:
-  - admonition
-  - codehilite:
-      guess_lang: false
-  - pymdownx.superfences
-  - pymdownx.details
-  - pymdownx.emoji
-

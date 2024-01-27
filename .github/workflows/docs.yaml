@@ -27,7 +27,6 @@ jobs:
     - name: Generate Documentation
       run: |
         mkdocs build
-        mkdocstrings your_package_name --output docs/api
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
