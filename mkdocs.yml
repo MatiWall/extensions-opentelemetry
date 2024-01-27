@@ -3,8 +3,7 @@ site_name: MyTestProject Documentation
 
 plugins:
   - search
-  - mkdocstrings:
-      include_package: extensions/opentelemetry
+  - mkdocstrings
 
 
 theme:
