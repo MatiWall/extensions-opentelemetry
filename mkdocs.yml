@@ -11,3 +11,5 @@ plugins:
 theme:
   name: readthedocs
 
+pages:
+  - Home: index.md
