@@ -11,6 +11,8 @@ metadata:
   - python
   - package
   - telemetry
+  annotations:
+    catcode.io/catdocs: dir: .  
 spec:
   type: pythonPackage
 
