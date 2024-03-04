@@ -4,7 +4,6 @@ metadata:
   system: packages
   application: extensions
   deployableUnit: opentelemetry
-  owner: mw
   tags:
   - python
   - package
@@ -14,4 +13,5 @@ metadata:
 spec:
   type: pythonPackage
   lifecycle: Development
+  owner: mw
 
