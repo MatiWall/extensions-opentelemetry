@@ -9,7 +9,8 @@ metadata:
   - package
   - telemetry
   annotations:
-    catcode.io/build-docs: true   
+    catcode.io/catdocs-build: true
+    catcode.io/catdocs-path: . 
 spec:
   type: pythonPackage
   lifecycle: Development
