@@ -1,3 +1,1 @@
-
-
-:::extensions.opentelemetry.config
+[comment]: <>  ::extensions.opentelemetry.config

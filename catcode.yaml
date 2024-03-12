@@ -1,16 +1,18 @@
 kind: Component
 metadata:
   description: Opentelemetry utilities for home lab
-  git: https://github.com/MatiWall/extensions-opentelemetry
-  lifecycle: Development
-  system: homelab
+  system: packages
   application: extensions
   deployableUnit: opentelemetry
-  owner: mw
   tags:
   - python
   - package
   - telemetry
+  annotations:
+    catcode.io/catdocs-build: true
+    catcode.io/catdocs-path: . 
 spec:
   type: pythonPackage
+  lifecycle: Development
+  owner: mw
 
