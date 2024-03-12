@@ -1,4 +1,5 @@
 import logging
+logger = logging.getLogger(__name__)
 import sys
 import threading
 
@@ -28,8 +29,27 @@ _resources = Resource.create({
 })
 
 def exception_handler(exc_type, exc_value, exc_traceback):
-    """Custom exception handler."""
-    logging.error("Uncaught exception", exc_info=(exc_type, exc_value, exc_traceback))
+    """
+    Custom exception handler.
+
+    Parameters
+    ----------
+    exc_type : type
+        The type of the exception.
+    exc_value : Exception
+        The exception instance.
+    exc_traceback : traceback
+        The traceback object.
+
+    Returns
+    -------
+    None
+
+    Notes
+    -----
+    You can also add logic to report the exception to your observability system using OpenTelemetry.
+    """
+    logger.error("Uncaught exception", exc_info=(exc_type, exc_value, exc_traceback))
     # You can also add logic to report the exception to your observability system using OpenTelemetry
 
 def configure_logging(
@@ -37,7 +57,29 @@ def configure_logging(
         level: int = logging.INFO,
         enable_otel: bool = False
 ):
-    """Configure logging with optional OpenTelemetry integration."""
+    """
+    Configure logging with optional OpenTelemetry integration.
+
+    Parameters
+    ----------
+    handlers : list[logging.Handler] | None, optional
+        List of logging handlers to be added, by default None.
+    level : int, optional
+        Logging level to be set, by default logging.INFO.
+    enable_otel : bool, optional
+        Flag to enable OpenTelemetry integration, by default False.
+
+    Returns
+    -------
+    None
+
+    Notes
+    -----
+    This function configures logging for the application. If `handlers` is not provided,
+    a console handler is added by default. Custom exception handlers are set for
+    uncaught exceptions in both the main thread and other threads. If `enable_otel`
+    is True, OpenTelemetry integration is enabled.
+    """
     if handlers is None:
         handlers = []
 
@@ -60,12 +102,22 @@ def configure_logging(
 
 
 def configure_otel_log_exporting():
+    """
+    Configure OpenTelemetry logging exporting.
+
+    This function configures the OpenTelemetry logging exporter to export logs.
+    """
     logger = logging.getLogger()
     provider = LoggerProvider(resource=_resources)
     provider.add_log_record_processor(BatchLogRecordProcessor(OTLPLogExporter()))
     logger.addHandler(LoggingHandler(logger_provider=provider))
 
 def configure_otel_trace_export():
+    """
+    Configure OpenTelemetry trace exporting.
+
+    This function configures the OpenTelemetry trace exporter to export traces.
+    """
     trace_provider = TracerProvider(resource=_resources)
     trace_exporter = OTLPSpanExporter()  # Update with your endpoint
     trace_provider.add_span_processor(BatchSpanProcessor(trace_exporter))
@@ -73,6 +125,11 @@ def configure_otel_trace_export():
     opentelemetry.trace.set_tracer_provider(trace_provider)
 
 def configure_otel_metrics_export():
+    """
+    Configure OpenTelemetry metrics exporting.
+
+    This function configures the OpenTelemetry metrics exporter to export metrics.
+    """
     metric_exporter = OTLPMetricExporter()  # Update with your endpoint
 
     reader = PeriodicExportingMetricReader(
@@ -83,6 +140,11 @@ def configure_otel_metrics_export():
     opentelemetry.metrics.set_meter_provider(metric_provider)
 
 def enable_opentelemetry_export():
+    """
+    Enable OpenTelemetry exporting.
+
+    This function enables exporting for OpenTelemetry logging, tracing, and metrics.
+    """
     configure_otel_log_exporting()
     configure_otel_trace_export()
     configure_otel_metrics_export()

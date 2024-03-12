@@ -1,8 +1,5 @@
 site_name: MyTestProject Documentation
 
-nav:
-  - Home: index.md
-  - Config: config.md
 
 plugins:
   - search
