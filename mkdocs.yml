@@ -1,5 +1,6 @@
 site_name: MyTestProject Documentation
 
+use_directory_urls: false
 plugins:
   - search
   - mkdocstrings:
