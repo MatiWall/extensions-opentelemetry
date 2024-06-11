@@ -12,7 +12,6 @@ packages = [
 [[tool.poetry.source]]
 name = "private"
 url = "http://pypi.mw.local"
-priority = "primary"
 
 
 [[tool.poetry.source]]
@@ -35,3 +34,6 @@ mypy = "^1.10.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+namespace_packages = true
