@@ -16,7 +16,7 @@ from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor
 from opentelemetry.sdk.metrics import MeterProvider
 from opentelemetry.sdk.metrics.export import PeriodicExportingMetricReader
-from extensions.configuration import environment, hostname, service_namespace, service_name, service_version, service_instance
+from extensions.configuration import environment, hostname, service_namespace, service_name, service_version, service_instance # type: ignore
 
 # Create a resource with OpenTelemetry attributes
 _resources = Resource.create({
@@ -84,8 +84,8 @@ def configure_logging(
         handlers = []
 
     # Set custom exception handlers
-    sys.excepthook = exception_handler
-    threading.excepthook = exception_handler
+    sys.excepthook = exception_handler # type: ignore
+    threading.excepthook = exception_handler # type: ignore
 
     # Console handler for basic logging
     console_handler = logging.StreamHandler()
