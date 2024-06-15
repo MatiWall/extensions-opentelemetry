@@ -12,6 +12,7 @@ packages = [
 [[tool.poetry.source]]
 name = "private"
 url = "http://pypi.mw.local"
+priority = "primary"
 
 
 [[tool.poetry.source]]
