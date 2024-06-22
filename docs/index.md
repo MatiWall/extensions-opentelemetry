@@ -1,17 +1,20 @@
-# Welcome to MkDocs
+# Welcome to Extensions Opentelemetry
+This package is a wrapper around the opentelemetry package and allows
+you to easily emit logs, traces and metrics to an opentelemetry collector. 
+It consists of helper function to setup opentelemetry and configure
+export to the otel collecotr running on the cluster
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## Opentelemetry Configuration
+:::extensions.opentelemetry.configure_opentelemetry
 
-## Commands
+## Enable Exporters
+:::extensions.opentelemetry.enable_opentelemetry_export
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+## Configure Log Export
+:::extensions.opentelemetry.configure_otel_log_exporting
 
-## Project layout
+## Configure Trace Export
+:::extensions.opentelemetry.configure_otel_trace_export
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+## Configure Metrics Export
+:::extensions.opentelemetry.configure_otel_metrics_export

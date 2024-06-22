@@ -29,8 +29,11 @@ _resources = Resource.create({
 })
 
 def exception_handler(exc_type, exc_value, exc_traceback):
-    """
-    Custom exception handler.
+    """Custom exception handler
+
+    In the case that an exception is raise this custom exception handler makes sure that the exception
+    along with its stack trace is logged before the program is excited.
+
 
     Parameters
     ----------
@@ -52,7 +55,7 @@ def exception_handler(exc_type, exc_value, exc_traceback):
     logger.error("Uncaught exception", exc_info=(exc_type, exc_value, exc_traceback))
     # You can also add logic to report the exception to your observability system using OpenTelemetry
 
-def configure_logging(
+def configure_opentelemetry(
         handlers: list[logging.Handler] | None = None,
         level: int = logging.INFO,
         enable_otel: bool = False
@@ -101,6 +104,16 @@ def configure_logging(
         enable_opentelemetry_export()
 
 
+def enable_opentelemetry_export():
+    """
+    Enable OpenTelemetry exporting.
+
+    This function enables exporting for OpenTelemetry logging, tracing, and metrics.
+    """
+    configure_otel_log_exporting()
+    configure_otel_trace_export()
+    configure_otel_metrics_export()
+
 def configure_otel_log_exporting():
     """
     Configure OpenTelemetry logging exporting.
@@ -139,19 +152,9 @@ def configure_otel_metrics_export():
     metric_provider = MeterProvider(resource=_resources, metric_readers=[reader])
     opentelemetry.metrics.set_meter_provider(metric_provider)
 
-def enable_opentelemetry_export():
-    """
-    Enable OpenTelemetry exporting.
-
-    This function enables exporting for OpenTelemetry logging, tracing, and metrics.
-    """
-    configure_otel_log_exporting()
-    configure_otel_trace_export()
-    configure_otel_metrics_export()
-
 # Example usage
 if __name__ == "__main__":
-    configure_logging(enable_otel=True)
+    configure_opentelemetry(enable_otel=True)
     logger = logging.getLogger(__name__)
 
     # Log some messages
