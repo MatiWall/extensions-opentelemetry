@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "extensions-opentelemetry"
-version = "0.1.1"
+version = "0.2.0"
 description = ""
 authors = ["Matias Wallenius <MatiWall@live.dk>"]
 readme = "README.md"
@@ -24,7 +24,7 @@ python = "^3.11"
 opentelemetry-api = "^1.22.0"
 opentelemetry-sdk = "^1.22.0"
 opentelemetry-exporter-otlp = "^1.22.0"
-extensions-configuration = "^0.1.0"
+extensions-configuration = "^0.2.0"
 mkdocstrings = {extras = ["python"], version = "^0.24.0"}
 
 [tool.poetry.group.dev.dependencies]
